@@ -22,7 +22,7 @@ Usage
 Arguments
 ---------
 
-*timeformatter(date, pattern)*
+    timeformatter(date, pattern)
 
 ### date
 * A Javascript Date object should be used.
@@ -37,20 +37,20 @@ For detailed reference of pattern symbols, please read following section.
 Pattern Reference
 -----------------
 
-symbol	description                         example
-~~~~~~  ~~~~~~~~~~~                         ~~~~~~~
-y	Year                                14, 2014
-M	Month of year                       J, Jul, July
-L       Month number of year                7, 07
-d	Day of Month                        3, 03
-E	Day of week                         S, Sun, Sunday
-e       Day number of week (Sunday is 0)    0, 00
+    symbol  description                         example
+    ~~~~~~  ~~~~~~~~~~~                         ~~~~~~~
+    y       Year                                14, 2014
+    M       Month of year                       J, Jul, July
+    L       Month number of year                7, 07
+    d       Day of Month                        3, 03
+    E       Day of week                         S, Sun, Sunday
+    e       Day number of week (Sunday is 0)    0, 00
 
-H	Hour of day (24 hours)              21
-h	Hour of day (12 hours)              9
-a	AM/PM off day                       a, am
-m	Minutes                             7, 07
-s	Seconds                             5, 05
+    H       Hour of day (24 hours)              21
+    h       Hour of day (12 hours)              9
+    a       AM/PM off day                       a, am
+    m       Minutes                             7, 07
+    s       Seconds                             5, 05
 
 
 License
