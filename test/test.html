@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <style type="text/css">
+        body { font-family: Verdana; color: white; background-color: #4a525a; }
+    </style>
     <script src='../lib/timeformatter.js'></script>
+    <script src='../lang/zh.js'></script>
     <script>
-        var tf = new TimeFormatter(); 
-        document.write(tf.format('yyyy/LL/dd'));
+        var tf = new TimeFormatter('zh'); 
+        document.write(tf.format('MMMMM,dd yyyy EEE hh:mm aa'));
     </script>
 
 </head>

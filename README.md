@@ -22,16 +22,29 @@ Usage
 Node.js
 -------
 
-    var tf = require('timeformatter')();
-
+    var tf = require('timeformatter')('zh');
+    ...
     console.log(tf.format('yyyy/LL/dd'));
+
+The argument 'lang' specifies which language will be used to format the time.
+If ommitted, the language 'English' will be used.
+
+*Currently, only 'en' and 'zh' language packs are supported.*
 
 Browser
 -------
 
-    <script src='host/path/timeformatter.js'></script>
+    <script src='path-to-timeformatter-root/lib/timeformatter.js'></script>
     <script>
         var tf = new TimeFormatter(); 
+        console.log(tf.format('yyyy/LL/dd'));
+    </script>
+
+Browser can also use language packs, but will need to be included separately:
+    <script src='path-to-timeformatter-root/lib/timeformatter.js'></script>
+    <script src='path-to-timeformatter-root/lang/zh.js'></script>
+    <script>
+        var tf = new TimeFormatter('zh'); 
         console.log(tf.format('yyyy/LL/dd'));
     </script>
 
@@ -53,23 +66,24 @@ For example
 * If this argument is a String instance, it will be converted to Javascript
   Date object, using its constructor. 
 
-**Be Very Careful!** Some environments (especially in Node.js), Javascript will
-consider your inputed string an 'UTC' time, and the nature of Date object
-only yield date time value of your local timezone. See, if you are in China,
-which is in timezone '+08:00', following code will not work as you expected:
+  **Be Very Careful!** Some environments (especially in Node.js), Javascript
+  will consider your inputed string an 'UTC' time, and the nature of Date
+  object only yield date time value of your local timezone. See, if you are in
+  China, which is in timezone '+08:00', following code will not work as you
+  expected:
+  
+      tf.format('2014-10-12T23:55:55', 'yyyy-LL-ddTHH:mm:ss');
+          // You may expect the same string as the first argument,
+          // but you got '2014-10-13T07:55:55' instead;
+          // because the system treat your input as 'UTC' time, but output
+          // it as your local time, which is 8 hours ahead of .
 
-    tf.format('2014-10-12T23:55:55', 'yyyy-LL-ddTHH:mm:ss');
-        // You may expect the same string as the first argument,
-        // but you got '2014-10-13T07:55:55' instead;
-        // because the system treat your input as 'UTC' time, but output
-        // it as your local time, which is 8 hours ahead of .
-
-To solve this problem, you can use the timeformatter's *localTimezoneOffset*
-property, and append it to the end of your input string. This property will
-look like: '+08:00'. So, the following code will be correct.
-
-    tf.format('2014-10-12T23:55:55' + tf.localTimezoneOffset,
-            'yyyy-LL-ddTHH:mm:ss'); // You got exactly what you want.
+  To solve this problem, you can use the timeformatter's *localTimezoneOffset*
+  property, and append it to the end of your input string. This property will
+  look like: '+08:00'. So, the following code will be correct.
+  
+      tf.format('2014-10-12T23:55:55' + tf.localTimezoneOffset,
+              'yyyy-LL-ddTHH:mm:ss'); // You got exactly what you want.
     
 
 ### pattern

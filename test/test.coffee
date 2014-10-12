@@ -11,9 +11,8 @@ pad2 = (n) ->
     (if n < 10 then '0' else '') + n
 
 describe "The test of timeformatter.js", ->
-    tf = require("../index")()
-    console.log "timezone offset = #{tf.localTimezoneOffset}"
     describe "# Ommit Date argument", ->
+        tf = require("../index")()
         now = null
         beforeEach ->
             now = new Date
@@ -33,6 +32,7 @@ describe "The test of timeformatter.js", ->
             assert.equal now.getSeconds(),   tf.format "s"
 
     describe "# With Date argument", ->
+        tf = require("../index")()
         dstr = "2013-10-12T21:55:44" + tf.localTimezoneOffset
         expc = "2013-10-12T21:55:44"
         patt = "yyyy-LL-ddTHH:mm:ss"
@@ -41,6 +41,7 @@ describe "The test of timeformatter.js", ->
 
 
     describe "# All fields", ->
+        tf = require("../index")()
         dstr = "2014-10-12T21:55:44" + tf.localTimezoneOffset
         expc = ";2014;10;12;21;9;55;44;0;p;pm;O;Oct;October;S;Sun;Sunday;"
         patt = ";yyyy;L;d;H;h;m;s;e;a;aa;M;MMM;MMMMM;E;EEE;EEEEE;"
@@ -48,6 +49,7 @@ describe "The test of timeformatter.js", ->
             assert.equal expc, tf.format dstr, patt
 
     describe "# Pattern length", ->
+        tf = require("../index")()
         dstr = "2014-10-09T21:55:44" + tf.localTimezoneOffset
 
         it "Year", ->
@@ -111,6 +113,7 @@ describe "The test of timeformatter.js", ->
             assert.equal 'pm',          tf.format dstr, "aaaaaaaa"
 
     describe "# Month names", ->
+        tf = require("../index")()
         expects = [
             'Jan'
             'Feb'
@@ -133,6 +136,7 @@ describe "The test of timeformatter.js", ->
             fn(n, dstr)
 
     describe "# Weekday names", ->
+        tf = require("../index")()
         expects = [
             'Sun'
             'Mon'
@@ -141,6 +145,48 @@ describe "The test of timeformatter.js", ->
             'Thu'
             'Fri'
             'Sat'
+        ]
+
+        for n, i in expects
+            dstr = "2014-10-#{pad2 5 + i}T00:00:00" + tf.localTimezoneOffset
+            fn = (n, dstr) ->
+                it n, ->
+                    assert.equal n, tf.format dstr, 'EEE'
+            fn(n, dstr)
+
+    describe "# Chinese Month names", ->
+        tf = require("../index")('zh')
+        expects = [
+            '一月'
+            '二月'
+            '三月'
+            '四月'
+            '五月'
+            '六月'
+            '七月'
+            '八月'
+            '九月'
+            '十月'
+            '十一月'
+            '十二月'
+        ]
+        for n, i in expects
+            dstr = "2010-#{pad2 i + 1}-01T00:00:00" + tf.localTimezoneOffset
+            fn = (n, dstr) ->
+                it n, ->
+                    assert.equal n, tf.format dstr, 'MMM'
+            fn(n, dstr)
+
+    describe "# Chinese Weekday names", ->
+        tf = require("../index")('zh')
+        expects = [
+            '星期天'
+            '星期一'
+            '星期二'
+            '星期三'
+            '星期四'
+            '星期五'
+            '星期六'
         ]
 
         for n, i in expects
