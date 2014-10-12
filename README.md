@@ -19,23 +19,64 @@ Installation
 Usage
 =====
 
+Node.js
+-------
+
+    var tf = require('timeformatter')();
+
+    console.log(tf.format('yyyy/LL/dd'));
+
+Browser
+-------
+
+    <script src='host/path/timeformatter.js'></script>
+    <script>
+        var tf = new TimeFormatter(); 
+        console.log(tf.format('yyyy/LL/dd'));
+    </script>
+
 Arguments
 ---------
 
-    timeformatter(date, pattern)
+Following code snippet shows how to use timeformatter:
+
+    tf.format(date, pattern);
+
+For example
+
+    tf.format("yyyy/L/d EEE"); // Will yield something like "2014/10/12 Sun"
+    tf.format(new Date(), "yyyy/L/d EEE"); // Same as above
 
 ### date
 * A Javascript Date object should be used.
-* If this argument is a String instance, it will be converted to Javascript
-  Date object, using its constructor.
 * If ommitted, the current time will be used.
+* If this argument is a String instance, it will be converted to Javascript
+  Date object, using its constructor. 
+
+**Be Very Careful!** Some environments (especially in Node.js), Javascript will
+consider your inputed string an 'UTC' time, and the nature of Date object
+only yield date time value of your local timezone. See, if you are in China,
+which is in timezone '+08:00', following code will not work as you expected:
+
+    tf.format('2014-10-12T23:55:55', 'yyyy-LL-ddTHH:mm:ss');
+        // You may expect the same string as the first argument,
+        // but you got '2014-10-13T07:55:55' instead;
+        // because the system treat your input as 'UTC' time, but output
+        // it as your local time, which is 8 hours ahead of .
+
+To solve this problem, you can use the timeformatter's *localTimezoneOffset*
+property, and append it to the end of your input string. This property will
+look like: '+08:00'. So, the following code will be correct.
+
+    tf.format('2014-10-12T23:55:55' + tf.localTimezoneOffset,
+            'yyyy-LL-ddTHH:mm:ss'); // You got exactly what you want.
+    
 
 ### pattern
 The pattern will be used to format the date time.
 For detailed reference of pattern symbols, please read following section.
 
-Pattern Reference
------------------
+**Pattern Reference**
 
     symbol  description                         example
     ~~~~~~  ~~~~~~~~~~~                         ~~~~~~~
