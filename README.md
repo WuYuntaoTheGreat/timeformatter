@@ -16,6 +16,10 @@ formatting date time using pattern.
 Installation
 ============
 
+Use [npm](www.npmjs.org) to install timeformatter.js:
+
+    npm install timeformatter
+
 Usage
 =====
 
