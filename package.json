@@ -1,0 +1,25 @@
+{
+    "name": "timeformatter",
+    "version": "0.0.1",
+    "description": "This is a utility module to provide Javascript programs the ability of formatting date time using pattern.",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --compilers coffee:coffee-script/register"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/WuYuntaoTheGreat/timeformatter.git"
+    },
+    "keywords": [
+        "date",
+        "time",
+        "format",
+        "pattern"
+    ],
+    "author": "Wu Yuntao",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/WuYuntaoTheGreat/timeformatter/issues"
+    },
+    "homepage": "https://github.com/WuYuntaoTheGreat/timeformatter"
+}
