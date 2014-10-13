@@ -45,6 +45,7 @@ Browser
     </script>
 
 Browser can also use language packs, but will need to be included separately:
+
     <script src='path-to-timeformatter-root/lib/timeformatter.js'></script>
     <script src='path-to-timeformatter-root/lang/zh.js'></script>
     <script>
