@@ -45,12 +45,15 @@ Browser
     </script>
 
 Browser can also use language packs, but will need to be included separately:
+
     <script src='path-to-timeformatter-root/lib/timeformatter.js'></script>
     <script src='path-to-timeformatter-root/lang/zh.js'></script>
     <script>
         var tf = new TimeFormatter('zh'); 
         console.log(tf.format('yyyy/LL/dd'));
     </script>
+
+NOTE: language pack AFTER main script.
 
 Arguments
 ---------
@@ -110,6 +113,67 @@ For detailed reference of pattern symbols, please read following section.
     a       AM/PM off day                       a, am
     m       Minutes                             7, 07
     s       Seconds                             5, 05
+
+Language Pack
+=============
+
+This version includes only English (no extra include file needed) and Chinese
+(need to include './lang/zh.js'). If you wish to support your local language,
+it can be done easily by create a new language pack script.
+
+Following is an example:
+
+
+    (function(){
+
+    var timeformater_lang_zh = {
+        'M' : {
+            1: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+            3: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+                'Oct', 'Nov', 'Dec'],
+            5: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'August', 'September', 'October', 'November', 'December']
+        },
+        'E' : {
+            1: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+            3: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            5: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                'Friday', 'Saturday']
+        },
+        'a' : {
+            1: ['a', 'p'],
+            2: ['am', 'pm']
+        }
+    }
+
+    /*
+     * Export the language pack.
+     */
+    if(typeof module != 'undefined'){
+        module.exports = timeformater_lang_en;
+    } else {
+        TimeFormatter.resources['zh'] = timeformater_lang_en;
+    }
+
+    })();
+
+
+The main part of each language pack is a hash map (associative array), keyed by
+time format pattern symbols ('M' for month names, 'E' for day of week, 'a' for
+AM/PM). Each item of the hash map is, again, a hash map, keyed by numbers; the
+numbers designate MINIMUM length of repeated symbols.
+
+For example, if it's January, according to the script above,
+
+Pattern 'M' will show 'J', and 'MM' will also show 'J', because it's 2
+repeated 'M' symbols, and 2 is greater than first key '1', and smaller than the
+seconde key '3'.
+
+Pattern 'MMM' and 'MMMM' will  show 'Jan', and 'MMMMM', 'MMMMMMMMMM' will show
+'January'.
+
+If you are using it in node.js, you may also need to modify the last few lines
+in './lib/timeformatter.js' to include your language pack.
 
 
 License
