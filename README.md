@@ -117,16 +117,17 @@ For detailed reference of pattern symbols, please read following section.
 Language Pack
 =============
 
-This version includes only English (no extra include file needed) and Chinese
-(need to include './lang/zh.js'). If you wish to support your local language,
-it can be done easily by create a new language pack script.
+This version includes only English (no extra include file needed) and Chinese,
+Japanese (need to include './lang/zh.js' and './lang/jp.js'). If you wish to 
+support your local language, it can be done easily by create a new language
+pack script.  
 
 Following is an example:
 
 
     (function(){
 
-    var timeformater_lang_zh = {
+    var timeformater_lang_en = {
         'M' : {
             1: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
             3: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
@@ -152,7 +153,7 @@ Following is an example:
     if(typeof module != 'undefined'){
         module.exports = timeformater_lang_en;
     } else {
-        TimeFormatter.resources['zh'] = timeformater_lang_en;
+        TimeFormatter.addResources('en', timeformater_lang_en);
     }
 
     })();
@@ -171,9 +172,6 @@ seconde key '3'.
 
 Pattern 'MMM' and 'MMMM' will  show 'Jan', and 'MMMMM', 'MMMMMMMMMM' will show
 'January'.
-
-If you are using it in node.js, you may also need to modify the last few lines
-in './lib/timeformatter.js' to include your language pack.
 
 
 License
