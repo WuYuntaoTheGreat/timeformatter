@@ -7,9 +7,15 @@
     </style>
     <script src='../lib/timeformatter.js'></script>
     <script src='../lang/zh.js'></script>
+    <script src='../lang/jp.js'></script>
     <script>
-        var tf = new TimeFormatter('zh'); 
-        document.write(tf.format('MMMMM,dd yyyy EEE hh:mm aa'));
+        var tf1 = new TimeFormatter('zh'); 
+        document.write(tf1.format('MMMMM,dd yyyy EEE hh:mm aa'));
+
+        document.write("<br/>");
+        var tf2 = new TimeFormatter('jp'); 
+        document.write(tf2.format('MMMMM,dd yyyy EEE hh:mm aa'));
+
     </script>
 
 </head>

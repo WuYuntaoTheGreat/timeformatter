@@ -196,3 +196,60 @@ describe "The test of timeformatter.js", ->
                     assert.equal n, tf.format dstr, 'EEE'
             fn(n, dstr)
 
+    describe "# Chinese am/pm", ->
+        tf = require("../index")('zh')
+        it '上午', ->
+            assert.equal '上午', tf.format "2014-10-27T00:00:01", 'a'
+        it '下午', ->
+            assert.equal '下午', tf.format "2014-10-27T12:00:01", 'a'
+
+
+    describe "# Japanese Month names", ->
+        tf = require("../index")('jp')
+        expects = [
+            '一月'
+            '二月'
+            '三月'
+            '四月'
+            '五月'
+            '六月'
+            '七月'
+            '八月'
+            '九月'
+            '十月'
+            '十一月'
+            '十二月'
+        ]
+        for n, i in expects
+            dstr = "2010-#{pad2 i + 1}-01T00:00:00" + tf.localTimezoneOffset
+            fn = (n, dstr) ->
+                it n, ->
+                    assert.equal n, tf.format dstr, 'MMM'
+            fn(n, dstr)
+
+    describe "# Japanese Weekday names", ->
+        tf = require("../index")('jp')
+        expects = [
+            '日曜日'
+            '月曜日'
+            '火曜日'
+            '水曜日'
+            '木曜日'
+            '金曜日'
+            '土曜日'
+        ]
+
+        for n, i in expects
+            dstr = "2014-10-#{pad2 5 + i}T00:00:00" + tf.localTimezoneOffset
+            fn = (n, dstr) ->
+                it n, ->
+                    assert.equal n, tf.format dstr, 'EEE'
+            fn(n, dstr)
+
+    describe "# Japanese am/pm", ->
+        tf = require("../index")('jp')
+        it '午前', ->
+            assert.equal '午前', tf.format "2014-10-27T00:00:01", 'a'
+        it '午後', ->
+            assert.equal '午後', tf.format "2014-10-27T12:00:01", 'a'
+

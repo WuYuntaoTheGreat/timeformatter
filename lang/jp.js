@@ -9,18 +9,18 @@
 ////////////////////////////////////////
 // wrapped - start
 
-var timeformater_lang_zh = {
+var timeformater_lang_jp = {
     'M' : {
         1: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
         2: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月',
             '十一月', '十二月']
     },
     'E' : {
-        1: ['日', '一', '二', '三', '四', '五', '六'],
-        3: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        1: ['日', '月', '火', '水', '木', '金', '土'],
+        3: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']
     },
     'a' : {
-        1: ['上午', '下午']
+        1: ['午前', '午後']
     }
 }
 
@@ -28,9 +28,9 @@ var timeformater_lang_zh = {
  * Export the language pack.
  */
 if(typeof module != 'undefined'){
-    module.exports = timeformater_lang_zh;
+    module.exports = timeformater_lang_jp;
 } else {
-    TimeFormatter.addResource('zh', timeformater_lang_zh);
+    TimeFormatter.addResource('jp', timeformater_lang_jp);
 }
 
 // wrapped - end

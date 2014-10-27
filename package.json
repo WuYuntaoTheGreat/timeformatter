@@ -16,6 +16,12 @@
         "format",
         "pattern"
     ],
+    "devDependencies" : {
+        "coffee-script": "*",
+        "mocha": "*",
+        "assert": "*",
+        "nice-logger": "*"
+    },
     "author": "Wu Yuntao",
     "license": "MIT",
     "bugs": {
