@@ -1,6 +1,6 @@
 {
   "name": "timeformatter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "This is a utility module to provide Javascript programs the ability of formatting date time using pattern.",
   "main": "index.js",
   "scripts": {
