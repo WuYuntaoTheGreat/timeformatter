@@ -1,31 +1,36 @@
 {
-    "name": "timeformatter",
-    "version": "0.1.4",
-    "description": "This is a utility module to provide Javascript programs the ability of formatting date time using pattern.",
-    "main": "index.js",
-    "scripts": {
-        "test": "mocha --compilers coffee:coffee-script/register"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/WuYuntaoTheGreat/timeformatter.git"
-    },
-    "keywords": [
-        "date",
-        "time",
-        "format",
-        "pattern"
-    ],
-    "devDependencies" : {
-        "coffee-script": "*",
-        "mocha": "*",
-        "assert": "*",
-        "nice-logger": "*"
-    },
-    "author": "Wu Yuntao",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/WuYuntaoTheGreat/timeformatter/issues"
-    },
-    "homepage": "https://github.com/WuYuntaoTheGreat/timeformatter"
+  "name": "timeformatter",
+  "version": "0.1.4",
+  "description": "This is a utility module to provide Javascript programs the ability of formatting date time using pattern.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/WuYuntaoTheGreat/timeformatter.git"
+  },
+  "keywords": [
+    "date",
+    "time",
+    "format",
+    "pattern"
+  ],
+  "devDependencies": {
+    "assert": "*",
+    "coffee-script": "*",
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "mocha": "*",
+    "nice-logger": "*"
+  },
+  "author": "Wu Yuntao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WuYuntaoTheGreat/timeformatter/issues"
+  },
+  "homepage": "https://github.com/WuYuntaoTheGreat/timeformatter"
 }
