@@ -1,26 +1,19 @@
 <!DOCTYPE html>
+<!-- vim: set ai et nu ts=4 sw=4 cc=100: -->
 <html>
 <head>
     <meta http-equiv=Content-Type content="text/html;charset=utf-8">
-    <style type="text/css">
-        body { font-family: Verdana; color: white; background-color: #4a525a; }
-    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.15.0.css">
+    <script src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
+    <!--
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js'></script>
+    -->
     <script src='../build/timeformatter.all.min.js'></script>
-    <script>
-        var tf1 = new TimeFormatter('en'); 
-        document.write(tf1.format('MMMMM,dd yyyy EEE hh:mm aa'));
-        document.write("<br/>");
-
-        var tf2 = new TimeFormatter('zh'); 
-        document.write(tf2.format('MMMMM,dd yyyy EEE hh:mm aa'));
-        document.write("<br/>");
-
-        var tf3 = new TimeFormatter('jp'); 
-        document.write(tf3.format('MMMMM,dd yyyy EEE hh:mm aa'));
-        document.write("<br/>");
-
-    </script>
-
+    <script src="http://code.jquery.com/qunit/qunit-1.15.0.js"></script>
+    <script src="./test.browser.js"></script>
 </head>
-<body> </body>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+</body>
 </html>
