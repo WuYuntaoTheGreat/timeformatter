@@ -1,7 +1,6 @@
 {
   "name": "timeformatter",
   "main": "lib/timeformatter.js",
-  "version": "0.1.6",
   "homepage": "https://github.com/WuYuntaoTheGreat/timeformatter",
   "authors": [
     "Wu Yuntao <crow-soup@qq.com>"

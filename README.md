@@ -16,9 +16,17 @@ formatting date time using pattern.
 Installation
 ============
 
-Use [npm](www.npmjs.org) to install timeformatter.js:
+npm
+-----
+Use [npm](http://www.npmjs.org) to install timeformatter.js:
 
     npm install timeformatter
+
+bower
+-----
+Use [bower](http://www.bower.io) to install timeformatter.js:
+
+	bower install timeformatter
 
 Usage
 =====
